@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Client {
     public static void main(String[] args) {
 
-        int port = 33333;
+            int port = 33333;
         try {
             Socket clientSocket = new Socket("localhost", port);
             PrintWriter out = new PrintWriter(clientSocket.getOutputStream());
@@ -36,6 +36,7 @@ public class Client {
                         msg = in.readLine();
                         while (msg != null) {
                             System.out.println("Server: " + msg);
+                            System.out.println();
                             msg = in.readLine();
                         }
                         System.out.println("Server out of service");
