@@ -29,26 +29,25 @@ public class Client {
             sender.start();
             Thread receiver = new Thread(new Runnable() {
                 String msg;
+
                 @Override
                 public void run() {
                     try {
                         msg = in.readLine();
-                        while (msg != null){
+                        while (msg != null) {
                             System.out.println("Server: " + msg);
                             msg = in.readLine();
                         }
                         System.out.println("Server out of service");
                         out.close();
                         clientSocket.close();
-                    }
-                    catch (IOException e) {
+                    } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
             });
             receiver.start();
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             System.out.println("Couldn't read port");
             System.exit(0);
         }

@@ -31,19 +31,19 @@ public class Server {
             sender.start();
             Thread receiver = new Thread(new Runnable() {
                 String msg;
+
                 @Override
                 public void run() {
                     try {
                         msg = in.readLine();
-                        while (msg != null){
+                        while (msg != null) {
                             System.out.println("Client: " + msg);
                             msg = in.readLine();
                         }
                         System.out.println("Server out of service");
                         out.close();
                         clientSocket.close();
-                    }
-                    catch (IOException e) {
+                    } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
