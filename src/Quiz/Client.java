@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Client {
     public static void main(String[] args) {
-        //testcomment
+
         int port = 33333;
         try {
             Socket clientSocket = new Socket("localhost", port);
