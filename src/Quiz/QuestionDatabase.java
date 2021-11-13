@@ -1,6 +1,7 @@
 package Quiz;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class QuestionDatabase {
 
@@ -56,6 +57,8 @@ public class QuestionDatabase {
                 "5",
                 "12",
                 "8"));
+
+        Collections.shuffle(questionsList);
 
         return questionsList;
     }
