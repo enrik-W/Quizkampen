@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Server {
     public static void main(String[] args) {
-
+        //Placeholder
         int port = 33333;
         Scanner sc = new Scanner(System.in);
         try {
