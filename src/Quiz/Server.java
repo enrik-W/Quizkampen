@@ -6,51 +6,21 @@ import java.net.Socket;
 import java.util.Scanner;
 
 public class Server {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         //Placeholder
         int port = 33333;
-        Scanner sc = new Scanner(System.in);
+        ServerSocket serverSocket = new ServerSocket(port);
         try {
-            ServerSocket serverSocket = new ServerSocket(port);
-            Socket clientSocket = serverSocket.accept();
-            PrintWriter out = new PrintWriter(clientSocket.getOutputStream());
-            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            while (true) {
+            Player player1 = new Player(serverSocket.accept());
+            Player player2 = new Player(serverSocket.accept());
 
-            Thread sender = new Thread(new Runnable() {
-                String msg;
 
-                @Override
-                public void run() {
-                    while (true) {
-                        msg = sc.nextLine();
-                        out.println(msg);
-                        out.flush();
-                    }
-                }
-            });
-            sender.start();
-            Thread receiver = new Thread(new Runnable() {
-                String msg;
+            }
 
-                @Override
-                public void run() {
-                    try {
-                        msg = in.readLine();
-                        while (msg != null) {
-                            System.out.println("Client: " + msg);
-                            msg = in.readLine();
-                        }
-                        System.out.println("Server out of service");
-                        out.close();
-                        clientSocket.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
-            receiver.start();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 }
