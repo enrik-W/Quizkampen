@@ -21,8 +21,8 @@ public class GUIGamePanel {
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        Color panelColor = new Color(30,120,200);
-        Color buttonColor = new Color(60,80,120);
+        Color panelColor = new Color(30, 120, 200);
+        Color buttonColor = new Color(60, 80, 120);
 
         panel.setVisible(true);
         panel.setBackground(panelColor);

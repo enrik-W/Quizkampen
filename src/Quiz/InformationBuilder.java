@@ -17,10 +17,10 @@ public class InformationBuilder {
         JButton button3 = new JButton(info.getAnswer2());
         JButton button4 = new JButton(info.getAnswer3());
 
-        button1.setPreferredSize(new Dimension(200,100));
-        button2.setPreferredSize(new Dimension(200,100));
-        button3.setPreferredSize(new Dimension(200,100));
-        button4.setPreferredSize(new Dimension(200,100));
+        button1.setPreferredSize(new Dimension(200, 100));
+        button2.setPreferredSize(new Dimension(200, 100));
+        button3.setPreferredSize(new Dimension(200, 100));
+        button4.setPreferredSize(new Dimension(200, 100));
 
         buttonList.add(button1);
         buttonList.add(button2);
@@ -29,7 +29,8 @@ public class InformationBuilder {
 
         return buttonList;
     }
-    public String labelBuilder(){
+
+    public String labelBuilder() {
 
         return info.getQuestion();
     }

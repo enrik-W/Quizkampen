@@ -24,7 +24,7 @@ public class Player extends Thread {
         }
     }
 
-   public void run() {
+    public void run() {
 
     }
 }
