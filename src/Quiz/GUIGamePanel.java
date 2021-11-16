@@ -49,7 +49,7 @@ public class GUIGamePanel {
         gbc.gridy = 1;
         gbc.weighty = 1;
         gbc.gridwidth = 1;
-        gbc.fill = GridBagConstraints.BOTH;
+      //  gbc.fill = GridBagConstraints.BOTH;
         panel.add(information.buttonBuilder().get(0), gbc);
 
         gbc.gridx = 1;
@@ -57,7 +57,7 @@ public class GUIGamePanel {
         gbc.gridy = 1;
         gbc.weighty = 1;
         gbc.gridwidth = 1;
-        gbc.fill = GridBagConstraints.BOTH;
+       // gbc.fill = GridBagConstraints.BOTH;
         panel.add(information.buttonBuilder().get(1), gbc);
 
         gbc.gridx = 0;
@@ -65,7 +65,7 @@ public class GUIGamePanel {
         gbc.gridy = 2;
         gbc.weighty = 1;
         gbc.gridwidth = 1;
-        gbc.fill = GridBagConstraints.BOTH;
+      //  gbc.fill = GridBagConstraints.BOTH;
         panel.add(information.buttonBuilder().get(2), gbc);
 
         gbc.gridx = 1;
@@ -73,7 +73,7 @@ public class GUIGamePanel {
         gbc.gridy = 2;
         gbc.weighty = 1;
         gbc.gridwidth = 1;
-        gbc.fill = GridBagConstraints.BOTH;
+      //  gbc.fill = GridBagConstraints.BOTH;
         panel.add(information.buttonBuilder().get(3), gbc);
 
         frame.repaint();

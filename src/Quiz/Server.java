@@ -5,7 +5,7 @@ import java.net.ServerSocket;
 
 public class Server {
     public static void main(String[] args) throws IOException {
-        int port = 33333;
+        int port = 55555;
         ServerSocket serverSocket = new ServerSocket(port);
         InformationBuilder information = new InformationBuilder();
 
