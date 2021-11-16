@@ -26,8 +26,12 @@ public class Client {
     }
 
     public static void main(String[] args) {
+        QuestionDatabase questions = new QuestionDatabase();
+        QuestionBuilder question = questions.getQuestion(1);
+
         String serverAddress = "localhost";
         Client client = new Client(serverAddress);
-        GUIGamePanel game = new GUIGamePanel();
+        GUIGamePanel game = new GUIGamePanel(question.getQuestion(), question.getCorrectAnswer(), question.getAnswer1(),
+                question.getAnswer2(), question.getAnswer3());
     }
 }

@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GUIGamePanel {
-    public GUIGamePanel() {
+    public GUIGamePanel(String question, String correctAnswer, String answer1, String answer2, String answer3) {
         JFrame frame = new JFrame();
         JPanel panel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -25,11 +25,11 @@ public class GUIGamePanel {
         panel.setVisible(true);
         panel.setBackground(panelColor);
 
-        JLabel jLabel = new JLabel("Vad heter sveriges huvudstad?", SwingConstants.CENTER);
-        JButton jButton1 = new JButton("1");
-        JButton jButton2 = new JButton("2");
-        JButton jButton3 = new JButton("3");
-        JButton jButton4 = new JButton("4");
+        JLabel jLabel = new JLabel(question, SwingConstants.CENTER);
+        JButton jButton1 = new JButton(correctAnswer);
+        JButton jButton2 = new JButton(answer1);
+        JButton jButton3 = new JButton(answer2);
+        JButton jButton4 = new JButton(answer3);
 
         jButton1.setPreferredSize(new Dimension(200, 100));
         jButton2.setPreferredSize(new Dimension(200, 100));
