@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class QuestionDatabase {
+    private ArrayList<QuestionBuilder> questionsList = new ArrayList<>();
 
-    public ArrayList<QuestionBuilder> questionsList() {
-
-        ArrayList<QuestionBuilder> questionsList = new ArrayList<>();
-
+    public QuestionDatabase() {
         questionsList.add(new QuestionBuilder("Matematik",
                 "Vad är summan av 1 + 1?",
                 "2",
@@ -59,7 +57,13 @@ public class QuestionDatabase {
                 "8"));
 
         Collections.shuffle(questionsList);
+    }
 
+    public ArrayList<QuestionBuilder> getQuestionsList() {
         return questionsList;
+    }
+
+    public QuestionBuilder getQuestion(int index) {
+        return questionsList.get(index);
     }
 }
