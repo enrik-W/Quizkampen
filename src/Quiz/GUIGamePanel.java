@@ -2,12 +2,14 @@ package Quiz;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Collections;
 
 public class GUIGamePanel {
     public static void main(String[] args) {
         JFrame frame = new JFrame();
         JPanel panel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
+        QuestionDatabase label = new QuestionDatabase();
         gbc.insets = new Insets(5, 5, 5, 5);
         gbc.anchor = GridBagConstraints.CENTER;
 
@@ -25,16 +27,10 @@ public class GUIGamePanel {
         panel.setVisible(true);
         panel.setBackground(panelColor);
 
-        JLabel jLabel = new JLabel("Vad heter sveriges huvudstad?", SwingConstants.CENTER);
-        JButton jButton1 = new JButton("1");
-        JButton jButton2 = new JButton("2");
-        JButton jButton3 = new JButton("3");
-        JButton jButton4 = new JButton("4");
+        InformationBuilder information = new InformationBuilder();
+        Collections.shuffle(information.buttonBuilder());
 
-        jButton1.setPreferredSize(new Dimension(200, 100));
-        jButton2.setPreferredSize(new Dimension(200, 100));
-        jButton3.setPreferredSize(new Dimension(200, 100));
-        jButton4.setPreferredSize(new Dimension(200, 100));
+        JLabel jLabel = new JLabel(information.labelBuilder(), SwingConstants.CENTER);
 
         jLabel.setOpaque(true);
         jLabel.setBackground(Color.white);
@@ -55,7 +51,7 @@ public class GUIGamePanel {
         gbc.weighty = 1;
         gbc.gridwidth = 1;
         gbc.fill = GridBagConstraints.BOTH;
-        panel.add(jButton1, gbc);
+        panel.add(information.buttonBuilder().get(0), gbc);
 
         gbc.gridx = 1;
         gbc.weightx = 1;
@@ -63,7 +59,7 @@ public class GUIGamePanel {
         gbc.weighty = 1;
         gbc.gridwidth = 1;
         gbc.fill = GridBagConstraints.BOTH;
-        panel.add(jButton2, gbc);
+        panel.add(information.buttonBuilder().get(1), gbc);
 
         gbc.gridx = 0;
         gbc.weightx = 1;
@@ -71,7 +67,7 @@ public class GUIGamePanel {
         gbc.weighty = 1;
         gbc.gridwidth = 1;
         gbc.fill = GridBagConstraints.BOTH;
-        panel.add(jButton3, gbc);
+        panel.add(information.buttonBuilder().get(2), gbc);
 
         gbc.gridx = 1;
         gbc.weightx = 1;
@@ -79,7 +75,7 @@ public class GUIGamePanel {
         gbc.weighty = 1;
         gbc.gridwidth = 1;
         gbc.fill = GridBagConstraints.BOTH;
-        panel.add(jButton4, gbc);
+        panel.add(information.buttonBuilder().get(3), gbc);
 
     }
 }
