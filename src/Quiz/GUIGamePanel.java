@@ -2,14 +2,12 @@ package Quiz;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Collections;
 
 public class GUIGamePanel {
     public GUIGamePanel(InformationBuilder information) {
         JFrame frame = new JFrame();
         JPanel panel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
-        QuestionDatabase label = new QuestionDatabase();
         gbc.insets = new Insets(5, 5, 5, 5);
         gbc.anchor = GridBagConstraints.CENTER;
 
@@ -26,8 +24,6 @@ public class GUIGamePanel {
 
         panel.setVisible(true);
         panel.setBackground(panelColor);
-
-      //  Collections.shuffle(information.buttonBuilder());
 
         JLabel jLabel = new JLabel(information.labelBuilder(), SwingConstants.CENTER);
 
@@ -49,34 +45,32 @@ public class GUIGamePanel {
         gbc.gridy = 1;
         gbc.weighty = 1;
         gbc.gridwidth = 1;
-      //  gbc.fill = GridBagConstraints.BOTH;
-        panel.add(information.buttonBuilder().get(0), gbc);
+        gbc.fill = GridBagConstraints.BOTH;
+        panel.add(information.getButton(0), gbc);
 
         gbc.gridx = 1;
         gbc.weightx = 1;
         gbc.gridy = 1;
         gbc.weighty = 1;
         gbc.gridwidth = 1;
-       // gbc.fill = GridBagConstraints.BOTH;
-        panel.add(information.buttonBuilder().get(1), gbc);
+        gbc.fill = GridBagConstraints.BOTH;
+        panel.add(information.getButton(1), gbc);
 
         gbc.gridx = 0;
         gbc.weightx = 1;
         gbc.gridy = 2;
         gbc.weighty = 1;
         gbc.gridwidth = 1;
-      //  gbc.fill = GridBagConstraints.BOTH;
-        panel.add(information.buttonBuilder().get(2), gbc);
+        gbc.fill = GridBagConstraints.BOTH;
+        panel.add(information.getButton(2), gbc);
 
         gbc.gridx = 1;
         gbc.weightx = 1;
         gbc.gridy = 2;
         gbc.weighty = 1;
         gbc.gridwidth = 1;
-      //  gbc.fill = GridBagConstraints.BOTH;
-        panel.add(information.buttonBuilder().get(3), gbc);
-
-        frame.repaint();
+        gbc.fill = GridBagConstraints.BOTH;
+        panel.add(information.getButton(3), gbc);
 
     }
 }

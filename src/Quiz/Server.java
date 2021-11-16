@@ -8,13 +8,13 @@ public class Server {
         int port = 55555;
         ServerSocket serverSocket = new ServerSocket(port);
         InformationBuilder information = new InformationBuilder();
+        information.shuffle();
 
         try {
             while (true) {
                 Player player1 = new Player(serverSocket.accept(), information);
-                Player player2 = new Player(serverSocket.accept(), information);
-
                 player1.start();
+                Player player2 = new Player(serverSocket.accept(), information);
                 player2.start();
             }
 

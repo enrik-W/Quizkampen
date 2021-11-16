@@ -6,13 +6,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class InformationBuilder {
+    private QuestionDatabase informationBase = new QuestionDatabase();
+    private QuestionBuilder info = informationBase.getQuestion(0);
+    private ArrayList<JButton> buttonList = new ArrayList<>();
 
-    QuestionDatabase informationBase = new QuestionDatabase();
-    QuestionBuilder info = informationBase.getQuestion(0);
-    ArrayList<JButton> buttonList = new ArrayList<>();
-
-    public ArrayList<JButton> buttonBuilder() {
-
+    public InformationBuilder() {
         JButton button1 = new JButton(info.getCorrectAnswer());
         JButton button2 = new JButton(info.getAnswer1());
         JButton button3 = new JButton(info.getAnswer2());
@@ -27,13 +25,17 @@ public class InformationBuilder {
         buttonList.add(button2);
         buttonList.add(button3);
         buttonList.add(button4);
-        Collections.shuffle(buttonList);
+    }
 
-        return buttonList;
+    public JButton getButton(int index) {
+        return buttonList.get(index);
     }
 
     public String labelBuilder() {
-
         return info.getQuestion();
+    }
+
+    public void shuffle() {
+        Collections.shuffle(buttonList);
     }
 }
