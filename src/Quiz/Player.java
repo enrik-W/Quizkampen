@@ -10,9 +10,11 @@ public class Player extends Thread {
     private Socket socket;
     private BufferedReader input;
     private PrintWriter output;
+    private InformationBuilder information;
 
-    public Player(Socket socket) {
+    public Player(Socket socket, InformationBuilder information) {
         this.socket = socket;
+        this.information = information;
 
         try {
             input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -25,6 +27,7 @@ public class Player extends Thread {
     }
 
     public void run() {
-        GUIGamePanel game = new GUIGamePanel();
+
+        GUIGamePanel game = new GUIGamePanel(this.information);
     }
 }

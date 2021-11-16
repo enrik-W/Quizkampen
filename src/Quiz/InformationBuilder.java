@@ -3,6 +3,7 @@ package Quiz;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class InformationBuilder {
 
@@ -26,6 +27,7 @@ public class InformationBuilder {
         buttonList.add(button2);
         buttonList.add(button3);
         buttonList.add(button4);
+        Collections.shuffle(buttonList);
 
         return buttonList;
     }

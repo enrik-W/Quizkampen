@@ -5,7 +5,7 @@ import java.awt.*;
 import java.util.Collections;
 
 public class GUIGamePanel {
-    public GUIGamePanel() {
+    public GUIGamePanel(InformationBuilder information) {
         JFrame frame = new JFrame();
         JPanel panel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -27,8 +27,7 @@ public class GUIGamePanel {
         panel.setVisible(true);
         panel.setBackground(panelColor);
 
-        InformationBuilder information = new InformationBuilder();
-        Collections.shuffle(information.buttonBuilder());
+      //  Collections.shuffle(information.buttonBuilder());
 
         JLabel jLabel = new JLabel(information.labelBuilder(), SwingConstants.CENTER);
 
@@ -76,6 +75,8 @@ public class GUIGamePanel {
         gbc.gridwidth = 1;
         gbc.fill = GridBagConstraints.BOTH;
         panel.add(information.buttonBuilder().get(3), gbc);
+
+        frame.repaint();
 
     }
 }
