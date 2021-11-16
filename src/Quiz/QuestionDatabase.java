@@ -57,6 +57,30 @@ public class QuestionDatabase {
                 "5",
                 "12",
                 "8"));
+        questionsList.add(new QuestionBuilder("Kampsport",
+                "Från vilket land kommer kampsporten Karate?",
+                "Japan",
+                "Kina",
+                "Thailand",
+                "Korea"));
+        questionsList.add(new QuestionBuilder("Kampsport",
+                "Vad betyder Taekwondo?",
+                "Foten och handens väg",
+                "Tom hand",
+                "Sparken och slagets väg",
+                "Den mjuka vägen"));
+        questionsList.add(new QuestionBuilder("Kampsport",
+                "Vad var Bruce Lees riktiga namn?",
+                "Jun Fan Lee",
+                "Jet Lee",
+                "Jackie Chan",
+                "Donnie Yen"));
+        questionsList.add(new QuestionBuilder("Kampsport,",
+                "Vilket alternativ är inte ett vapen som används inom kampsport?",
+                "Taebo",
+                "Nunchaku",
+                "Bo",
+                "Sai"));
 
         Collections.shuffle(questionsList);
 
