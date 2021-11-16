@@ -31,7 +31,6 @@ public class Client {
 
         String serverAddress = "localhost";
         Client client = new Client(serverAddress);
-        GUIGamePanel game = new GUIGamePanel(question.getQuestion(), question.getCorrectAnswer(), question.getAnswer1(),
-                question.getAnswer2(), question.getAnswer3());
+        GUIGamePanel game = new GUIGamePanel();
     }
 }
