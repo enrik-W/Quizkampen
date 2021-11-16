@@ -12,7 +12,8 @@ public class Server {
                 Player player1 = new Player(serverSocket.accept());
                 Player player2 = new Player(serverSocket.accept());
 
-
+                player1.start();
+                player2.start();
             }
 
         } catch (Exception e) {

@@ -25,6 +25,6 @@ public class Player extends Thread {
     }
 
     public void run() {
-
+        GUIGamePanel game = new GUIGamePanel();
     }
 }
