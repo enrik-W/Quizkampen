@@ -27,6 +27,43 @@ public class InformationBuilder implements ActionListener {
         button3 = new JButton(info.getAnswer2());
         button4 = new JButton(info.getAnswer3());
 
+
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                button1.setBorderPainted(false);
+                button1.setBackground(Color.GREEN);
+                button1.repaint();
+            }
+        });
+        button2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                button2.setBorderPainted(false);
+                button2.setBackground(Color.RED);
+                button2.repaint();
+
+            }
+        });
+        button3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                button3.setBorderPainted(false);
+                button3.setBackground(Color.RED);
+                button3.repaint();
+
+            }
+        });
+        button4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                button4.setBorderPainted(false);
+                button4.setBackground(Color.RED);
+                button4.repaint();
+
+            }
+        });
+
         buttonList.add(button1);
         buttonList.add(button2);
         buttonList.add(button3);
