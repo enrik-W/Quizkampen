@@ -2,54 +2,35 @@ package Quiz;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.Scanner;
+import java.net.UnknownHostException;
 
 public class Client {
-    public static void main(String[] args) {
 
-        int port = 33333;
+    private static int port = 55555;
+    private Socket socket;
+    private BufferedReader in;
+    private PrintWriter out;
+
+    public Client(String serverAddress) {
         try {
-            Socket clientSocket = new Socket("localhost", port);
-            PrintWriter out = new PrintWriter(clientSocket.getOutputStream());
-            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            Scanner sc = new Scanner(System.in);
-
-            Thread sender = new Thread(new Runnable() {
-                String msg;
-
-                @Override
-                public void run() {
-                    while (true) {
-                        msg = sc.nextLine();
-                        out.println(msg);
-                        out.flush();
-                    }
-                }
-            });
-            sender.start();
-            Thread receiver = new Thread(new Runnable() {
-                String msg;
-
-                @Override
-                public void run() {
-                    try {
-                        msg = in.readLine();
-                        while (msg != null) {
-                            System.out.println("Server: " + msg);
-                            msg = in.readLine();
-                        }
-                        System.out.println("Server out of service");
-                        out.close();
-                        clientSocket.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
-            receiver.start();
+            socket = new Socket(serverAddress, port);
+            in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            out = new PrintWriter(socket.getOutputStream(), true);
+        } catch (UnknownHostException e) {
+            System.err.println("Unknown host");
+            e.printStackTrace();
         } catch (IOException e) {
-            System.out.println("Couldn't read port");
-            System.exit(0);
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void main(String[] args) {
+        String serverAddress = "localhost";
+        Client client = new Client(serverAddress);
+
+        while (true) {
+
         }
 
     }

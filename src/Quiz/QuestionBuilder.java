@@ -1,6 +1,5 @@
 package Quiz;
 
-import java.util.ArrayList;
 
 public class QuestionBuilder {
     private String category;
@@ -41,5 +40,29 @@ public class QuestionBuilder {
         this.answer1 = answer1;
         this.answer2 = answer2;
         this.answer3 = answer3;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public String getCorrectAnswer() {
+        return correctAnswer;
+    }
+
+    public String getAnswer1() {
+        return answer1;
+    }
+
+    public String getAnswer2() {
+        return answer2;
+    }
+
+    public String getAnswer3() {
+        return answer3;
     }
 }
