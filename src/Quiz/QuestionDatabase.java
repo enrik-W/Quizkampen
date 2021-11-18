@@ -80,7 +80,7 @@ public class QuestionDatabase {
                 "Bo",
                 "Sai"));
 
-        Collections.shuffle(questionsList);
+       // Collections.shuffle(questionsList);
     }
 
     public ArrayList<QuestionBuilder> getQuestionsList() {

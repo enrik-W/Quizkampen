@@ -12,7 +12,7 @@ public class Player extends Thread {
     private PrintWriter output;
     private InformationBuilder information;
 
-    public Player(Socket socket, InformationBuilder information) {
+    public Player(Socket socket) {
         this.socket = socket;
         this.information = information;
 
@@ -28,6 +28,6 @@ public class Player extends Thread {
 
     public void run() {
 
-        GUIGamePanel game = new GUIGamePanel(this.information);
+      //  GUIGamePanel game = new GUIGamePanel(this.information);
     }
 }
