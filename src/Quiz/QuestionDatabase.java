@@ -81,6 +81,30 @@ public class QuestionDatabase {
                 "Nunchaku",
                 "Bo",
                 "Sai"));
+        questionsList.add(new QuestionBuilder("Geografi",
+                "Vad heter Europas längsta och vattenrikaste flod?",
+                "Volga",
+                "Donau",
+                "Rhen",
+                "Elbe"));
+        questionsList.add(new QuestionBuilder("Geografi",
+                "Vad heter Kanadas huvudstad?",
+                "Ottawa",
+                "Washington",
+                "Montreal",
+                "Ontario"));
+        questionsList.add(new QuestionBuilder("Geografi",
+                "Var hittar man tornet Big Ben?",
+                "London",
+                "Paris",
+                "Köpenhamn",
+                "Sydney"));
+        questionsList.add(new QuestionBuilder("Geografi",
+                "Vilket land kallades Rhodesia?",
+                "Zimbabwe",
+                "Eritrea",
+                "Sudan",
+                "Kambodja"));
 
         Collections.shuffle(questionsList);
 
