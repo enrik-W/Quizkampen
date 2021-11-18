@@ -10,11 +10,9 @@ public class Player extends Thread {
     private Socket socket;
     private BufferedReader input;
     private PrintWriter output;
-    private InformationBuilder information;
 
-    public Player(Socket socket, InformationBuilder information) {
+    public Player(Socket socket) {
         this.socket = socket;
-        this.information = information;
 
         try {
             input = new BufferedReader(new InputStreamReader(socket.getInputStream()));

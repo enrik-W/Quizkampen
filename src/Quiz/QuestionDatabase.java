@@ -3,23 +3,20 @@ package Quiz;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
-import java.io.Serializable;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.Collections;
 
-public class QuestionDatabase implements Serializable {
+public class QuestionDatabase {
     private ArrayList<QuestionBuilder> questionsList = new ArrayList<>();
     private Socket socket;
     private OutputStream outputStream;
-    private ObjectOutputStream oos;
+    private ObjectOutputStream objectOutputStream;
 
     public QuestionDatabase() {
         try {
-            socket = new Socket("localhost", 55555);
+            socket = new Socket("localhost", 12345);
             outputStream = socket.getOutputStream();
-            oos = new ObjectOutputStream(outputStream);
-
+            objectOutputStream = new ObjectOutputStream(outputStream);
 
             questionsList.add(new QuestionBuilder("Matematik",
                     "Vad är summan av 1 + 1?",
@@ -94,7 +91,9 @@ public class QuestionDatabase implements Serializable {
                     "Bo",
                     "Sai"));
 
-            oos.writeObject(questionsList);
+            objectOutputStream.writeObject(questionsList);
+            objectOutputStream.reset();
+            socket.close();
 
         } catch (IOException e) {
             e.printStackTrace();
