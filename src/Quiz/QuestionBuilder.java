@@ -42,27 +42,4 @@ public class QuestionBuilder {
         this.answer3 = answer3;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public String getQuestion() {
-        return question;
-    }
-
-    public String getCorrectAnswer() {
-        return correctAnswer;
-    }
-
-    public String getAnswer1() {
-        return answer1;
-    }
-
-    public String getAnswer2() {
-        return answer2;
-    }
-
-    public String getAnswer3() {
-        return answer3;
-    }
 }
