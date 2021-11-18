@@ -39,6 +39,7 @@ public class InformationBuilder {
                 button2.setVisible(false);
                 button3.setVisible(false);
                 button4.setVisible(false);
+                button1.repaint();
             }
         });
         button2.addActionListener(new ActionListener() {
@@ -52,6 +53,7 @@ public class InformationBuilder {
                 button1.setVisible(false);
                 button3.setVisible(false);
                 button4.setVisible(false);
+                button2.repaint();
             }
         });
         button3.addActionListener(new ActionListener() {
@@ -65,6 +67,7 @@ public class InformationBuilder {
                 button1.setVisible(false);
                 button2.setVisible(false);
                 button4.setVisible(false);
+                button3.repaint();
 
             }
         });
@@ -79,6 +82,7 @@ public class InformationBuilder {
                 button1.setVisible(false);
                 button2.setVisible(false);
                 button4.setVisible(false);
+                button4.repaint();
             }
         });
     }
