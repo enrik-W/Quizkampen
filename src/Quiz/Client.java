@@ -28,10 +28,7 @@ public class Client {
     public static void main(String[] args) {
         String serverAddress = "localhost";
         Client client = new Client(serverAddress);
-        GUIGamePanel test = new GUIGamePanel();
-       // LocalQuestionDatabase base = new LocalQuestionDatabase();
-       // System.out.println(base.getQuestion(0).getQuestion());
-
+        GUIGamePanel game = new GUIGamePanel();
 
         while (true) {
 
