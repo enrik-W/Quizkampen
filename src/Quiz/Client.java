@@ -29,8 +29,5 @@ public class Client {
         Client client = new Client(serverAddress);
         GUIGamePanel game = new GUIGamePanel();
 
-        while (true) {
-
-        }
     }
 }
