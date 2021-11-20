@@ -4,10 +4,13 @@ import java.io.*;
 import java.net.ServerSocket;
 
 public class Server {
+    private final static int port = 55555;
+    private static ServerSocket serverSocket;
+    private static QuestionDatabase database;
+
     public static void main(String[] args) throws IOException {
-        int port = 55555;
-        ServerSocket serverSocket = new ServerSocket(port);
-        QuestionDatabase database = new QuestionDatabase();
+        serverSocket = new ServerSocket(port);
+        database = new QuestionDatabase();
 
         try {
             while (true) {
