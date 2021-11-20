@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class InformationBuilder {
-    private QuestionDatabase informationBase = new QuestionDatabase();
+    private LocalQuestionDatabase informationBase = new LocalQuestionDatabase();
     private QuestionBuilder info = informationBase.getQuestion(0);
     private ArrayList<JButton> buttonList = new ArrayList<>();
 

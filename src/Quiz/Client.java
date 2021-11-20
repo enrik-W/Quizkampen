@@ -28,8 +28,7 @@ public class Client {
     public static void main(String[] args) {
         String serverAddress = "localhost";
         Client client = new Client(serverAddress);
-        GUIGamePanel test = new GUIGamePanel();
-
+        GUIGamePanel game = new GUIGamePanel();
 
         while (true) {
 

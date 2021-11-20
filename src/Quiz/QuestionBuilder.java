@@ -1,7 +1,8 @@
 package Quiz;
 
+import java.io.Serializable;
 
-public class QuestionBuilder {
+public class QuestionBuilder implements Serializable {
     private String category;
     private String question;
     private String correctAnswer;

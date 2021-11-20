@@ -1,12 +1,21 @@
 package Quiz;
 
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.ArrayList;
-import java.util.Collections;
 
-public class QuestionDatabase {
+public class QuestionDatabase extends Thread {
     private ArrayList<QuestionBuilder> questionsList = new ArrayList<>();
+    private Socket socket;
+    private ServerSocket serverSocket;
+    private OutputStream outputStream;
+    private ObjectOutputStream objectOutputStream;
 
     public QuestionDatabase() {
+
         questionsList.add(new QuestionBuilder("Matematik",
                 "Vad är summan av 1 + 1?",
                 "2",
@@ -80,14 +89,24 @@ public class QuestionDatabase {
                 "Bo",
                 "Sai"));
 
-        //Collections.shuffle(questionsList);
+        start();
     }
 
-    public ArrayList<QuestionBuilder> getQuestionsList() {
-        return questionsList;
+    public void run() {
+        try {
+            serverSocket = new ServerSocket(12345);
+
+            while (true) {
+                socket = serverSocket.accept();
+                outputStream = socket.getOutputStream();
+                objectOutputStream = new ObjectOutputStream(outputStream);
+
+                objectOutputStream.writeObject(questionsList);
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public QuestionBuilder getQuestion(int index) {
-        return questionsList.get(index);
-    }
 }
