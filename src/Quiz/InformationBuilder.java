@@ -9,7 +9,7 @@ public class InformationBuilder {
     private LocalQuestionDatabase informationBase = new LocalQuestionDatabase();
     private QuestionBuilder info = informationBase.getQuestion(0);
     private ArrayList<JButton> buttonList = new ArrayList<>();
-
+//yolos
     public InformationBuilder() {
         JButton button1 = new JButton(info.getCorrectAnswer());
         JButton button2 = new JButton(info.getAnswer1());
