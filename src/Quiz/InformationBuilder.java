@@ -7,10 +7,12 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class InformationBuilder implements ActionListener {
-    private int questionNr = 0;
+public class InformationBuilder extends Client implements ActionListener {
+    private int questionNr;
+    private int questionIndex;
+    private int score;
     private LocalQuestionDatabase informationBase = new LocalQuestionDatabase();
-    private QuestionBuilder info = informationBase.getQuestion(questionNr);
+    private QuestionBuilder info;
     private ArrayList<JButton> buttonList = new ArrayList<>();
     private GameLogic logic = new GameLogic();
     private JButton button1;
@@ -18,51 +20,17 @@ public class InformationBuilder implements ActionListener {
     private JButton button3;
     private JButton button4;
     private JButton buttonPressed;
-    private Client client;
+    //private Client client;
 
-    public InformationBuilder(Client client) {
-        this.client = client;
-        button1 = new JButton(info.getCorrectAnswer());
+    public InformationBuilder(int score, int questionIndex) {
+        super(score, questionIndex);
+        this.questionIndex = questionIndex;
+        this.score = score;
+        updateButtons();
+       /* button1 = new JButton(info.getCorrectAnswer());
         button2 = new JButton(info.getAnswer1());
         button3 = new JButton(info.getAnswer2());
         button4 = new JButton(info.getAnswer3());
-
-
-        button1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                button1.setBorderPainted(false);
-                button1.setBackground(Color.GREEN);
-                button1.repaint();
-            }
-        });
-        button2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                button2.setBorderPainted(false);
-                button2.setBackground(Color.RED);
-                button2.repaint();
-
-            }
-        });
-        button3.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                button3.setBorderPainted(false);
-                button3.setBackground(Color.RED);
-                button3.repaint();
-
-            }
-        });
-        button4.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                button4.setBorderPainted(false);
-                button4.setBackground(Color.RED);
-                button4.repaint();
-
-            }
-        });
 
         buttonList.add(button1);
         buttonList.add(button2);
@@ -78,15 +46,43 @@ public class InformationBuilder implements ActionListener {
                 buttonList.get(i).setPreferredSize(new Dimension(200, 100));
             }
 
-        }
+        } */
 
+    }
+
+    public void updateButtons() {
+        info = informationBase.getQuestion(getQuestionIndex());
+        button1 = new JButton(info.getCorrectAnswer());
+        button2 = new JButton(info.getAnswer1());
+        button3 = new JButton(info.getAnswer2());
+        button4 = new JButton(info.getAnswer3());
+
+        buttonList.add(button1);
+        buttonList.add(button2);
+        buttonList.add(button3);
+        buttonList.add(button4);
+
+        for (int i = 0; i < buttonList.size(); i++) {
+            if (i == 0) {
+                buttonList.get(0).addActionListener(l -> correctAnswer());
+                buttonList.get(0).setPreferredSize(new Dimension(200, 100));
+                buttonList.get(0).repaint();
+            } else {
+                buttonList.get(i).addActionListener(this);
+                buttonList.get(i).setPreferredSize(new Dimension(200, 100));
+                buttonList.get(i).repaint();
+            }
+
+        }
     }
 
     public void correctAnswer() {
         button1.setBackground(Color.GREEN);
-        removeAllActionListeners();
-        client.addToScore();
-        questionNr++;
+      //  removeAllActionListeners();
+        addToScore();
+        setQuestionIndex(questionNr + 1);
+        updateButtons();
+        updateGamepanel(this);
     }
 
     @Override
@@ -94,8 +90,8 @@ public class InformationBuilder implements ActionListener {
         buttonPressed = (JButton) e.getSource();
         buttonPressed.setBackground(Color.RED);
         button1.setBackground(Color.GREEN);
-        removeAllActionListeners();
-        questionNr++;
+      //  removeAllActionListeners();
+        setQuestionIndex(questionNr + 1);
     }
 
     public JButton getButton(int index) {
