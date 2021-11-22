@@ -28,8 +28,14 @@ public class LocalQuestionDatabase {
         }
     }
 
+    public ArrayList<QuestionBuilder> getQuestionList() {
+        return questionList;
+    }
+
     public QuestionBuilder getQuestion(int index) {
         return questionList.get(index);
+
+
 
     }
 
