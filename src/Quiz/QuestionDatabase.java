@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class QuestionDatabase {
+    private ArrayList<QuestionBuilder> questionsList = new ArrayList<>();
 
-    public ArrayList<QuestionBuilder> questionsList() {
-
-        ArrayList<QuestionBuilder> questionsList = new ArrayList<>();
+    public QuestionDatabase() {
 
         questionsList.add(new QuestionBuilder("Matematik",
                 "Vad är summan av 1 + 1?",
@@ -107,6 +106,5 @@ public class QuestionDatabase {
                 "Kambodja"));
 
 
-        return questionsList;
     }
 }
