@@ -11,6 +11,7 @@ public class InformationBuilder implements ActionListener {
     private LocalQuestionDatabase informationBase = new LocalQuestionDatabase();
     private QuestionBuilder info = informationBase.getQuestion(0);
     private ArrayList<JButton> buttonList = new ArrayList<>();
+    private GameLogic sleep = new GameLogic();
     private JButton button1;
     private JButton button2;
     private JButton button3;
@@ -47,6 +48,7 @@ public class InformationBuilder implements ActionListener {
         button1.setBackground(Color.GREEN);
         removeAllActionListeners();
         client.addToScore();
+        sleep.sleepFunction();
     }
 
     @Override
@@ -55,6 +57,7 @@ public class InformationBuilder implements ActionListener {
         buttonPressed.setBackground(Color.RED);
         button1.setBackground(Color.GREEN);
         removeAllActionListeners();
+        sleep.sleepFunction();
     }
 
     public JButton getButton(int index) {

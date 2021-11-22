@@ -74,4 +74,8 @@ public class GUIGamePanel {
         panel.add(information.getButton(3), gbc);
 
     }
+    public void updateGamePanel(){
+
+
+    }
 }
