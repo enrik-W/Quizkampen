@@ -4,11 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GUIGamePanel {
-    public GUIGamePanel() {
+    public GUIGamePanel(InformationBuilder information) {
         JFrame frame = new JFrame();
         JPanel panel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
-        InformationBuilder information = new InformationBuilder();
+     //   InformationBuilder information = new InformationBuilder();
         gbc.insets = new Insets(5, 5, 5, 5);
         gbc.anchor = GridBagConstraints.CENTER;
 

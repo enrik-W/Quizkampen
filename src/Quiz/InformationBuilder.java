@@ -7,84 +7,54 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class InformationBuilder {
+public class InformationBuilder implements ActionListener {
     private LocalQuestionDatabase informationBase = new LocalQuestionDatabase();
     private QuestionBuilder info = informationBase.getQuestion(0);
     private ArrayList<JButton> buttonList = new ArrayList<>();
+    private JButton button1;
+    private JButton button2;
+    private JButton button3;
+    private JButton button4;
+    private JButton buttonPressed;
+    private Client client;
 
-    public InformationBuilder() {
-        JButton button1 = new JButton(info.getCorrectAnswer());
-        JButton button2 = new JButton(info.getAnswer1());
-        JButton button3 = new JButton(info.getAnswer2());
-        JButton button4 = new JButton(info.getAnswer3());
-
-        button1.setPreferredSize(new Dimension(200, 100));
-        button2.setPreferredSize(new Dimension(200, 100));
-        button3.setPreferredSize(new Dimension(200, 100));
-        button4.setPreferredSize(new Dimension(200, 100));
+    public InformationBuilder(Client client) {
+        this.client = client;
+        button1 = new JButton(info.getCorrectAnswer());
+        button2 = new JButton(info.getAnswer1());
+        button3 = new JButton(info.getAnswer2());
+        button4 = new JButton(info.getAnswer3());
 
         buttonList.add(button1);
         buttonList.add(button2);
         buttonList.add(button3);
         buttonList.add(button4);
 
-        button1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                button1.setBackground(Color.GREEN);
-                button1.setBorderPainted(false);
-                button1.setOpaque(true);
-                button1.setText("Rätt svar");
-                button1.setFont(new Font("Arial", Font.BOLD,16));
-                button2.setVisible(false);
-                button3.setVisible(false);
-                button4.setVisible(false);
-                button1.repaint();
+        for (int i = 0; i < buttonList.size(); i++) {
+            if (i == 0) {
+                buttonList.get(0).addActionListener(l -> correctAnswer());
+                buttonList.get(0).setPreferredSize(new Dimension(200, 100));
+            } else {
+                buttonList.get(i).addActionListener(this);
+                buttonList.get(i).setPreferredSize(new Dimension(200, 100));
             }
-        });
-        button2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                button2.setBackground(Color.RED);
-                button2.setBorderPainted(false);
-                button2.setOpaque(true);
-                button2.setText("Fel svar");
-                button2.setFont(new Font("Arial", Font.BOLD,16));
-                button1.setVisible(false);
-                button3.setVisible(false);
-                button4.setVisible(false);
-                button2.repaint();
-            }
-        });
-        button3.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                button3.setBackground(Color.RED);
-                button3.setBorderPainted(false);
-                button3.setOpaque(true);
-                button3.setText("Fel svar");
-                button3.setFont(new Font("Arial", Font.BOLD,16));
-                button1.setVisible(false);
-                button2.setVisible(false);
-                button4.setVisible(false);
-                button3.repaint();
 
-            }
-        });
-        button4.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                button4.setBackground(Color.RED);
-                button4.setBorderPainted(false);
-                button4.setOpaque(true);
-                button4.setText("Fel svar");
-                button4.setFont(new Font("Arial", Font.BOLD,16));
-                button1.setVisible(false);
-                button2.setVisible(false);
-                button4.setVisible(false);
-                button4.repaint();
-            }
-        });
+        }
+
+    }
+
+    public void correctAnswer() {
+        button1.setBackground(Color.GREEN);
+        removeAllActionListeners();
+        client.addToScore();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        buttonPressed = (JButton) e.getSource();
+        buttonPressed.setBackground(Color.RED);
+        button1.setBackground(Color.GREEN);
+        removeAllActionListeners();
     }
 
     public JButton getButton(int index) {
@@ -95,7 +65,15 @@ public class InformationBuilder {
         return info.getQuestion();
     }
 
+    public void removeAllActionListeners() {
+        for (JButton button : buttonList) {
+            button.removeActionListener(this);
+        }
+
+    }
+
     public void shuffle() {
         Collections.shuffle(buttonList);
     }
+
 }
