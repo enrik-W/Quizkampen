@@ -4,11 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GUIGamePanel {
+
+    JFrame frame = new JFrame();
+    JPanel panel = new JPanel(new GridBagLayout());
+    GridBagConstraints gbc = new GridBagConstraints();
+
     public GUIGamePanel(InformationBuilder information) {
-        JFrame frame = new JFrame();
-        JPanel panel = new JPanel(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
-     //   InformationBuilder information = new InformationBuilder();
         gbc.insets = new Insets(5, 5, 5, 5);
         gbc.anchor = GridBagConstraints.CENTER;
 
@@ -21,7 +22,7 @@ public class GUIGamePanel {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         Color panelColor = new Color(30, 120, 200);
-        Color buttonColor = new Color(60, 80, 120);
+       // Color buttonColor = new Color(60, 80, 120);
 
         panel.setVisible(true);
         panel.setBackground(panelColor);
@@ -72,6 +73,12 @@ public class GUIGamePanel {
         gbc.gridwidth = 1;
         gbc.fill = GridBagConstraints.BOTH;
         panel.add(information.getButton(3), gbc);
+    }
+
+    public void updateGamePanel(InformationBuilder information){
+        panel.removeAll();
+
+
     }
 }
 

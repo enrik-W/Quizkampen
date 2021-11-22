@@ -49,7 +49,6 @@ public class InformationBuilder implements ActionListener {
         button1.setBackground(Color.GREEN);
         removeAllActionListeners();
         client.addToScore();
-        logic.sleepFunction();
         questionNr++;
     }
 
@@ -59,7 +58,6 @@ public class InformationBuilder implements ActionListener {
         buttonPressed.setBackground(Color.RED);
         button1.setBackground(Color.GREEN);
         removeAllActionListeners();
-        logic.sleepFunction();
         questionNr++;
     }
 

@@ -11,6 +11,7 @@ public class Client {
     private BufferedReader in;
     private PrintWriter out;
 
+
     public Client(String serverAddress, int score) {
         this.score = score;
         try {
@@ -32,6 +33,10 @@ public class Client {
 
     public void addToScore() {
         this.score++;
+    }
+
+    public void updateGamepanel(){
+
     }
 
     public static void main(String[] args) {
