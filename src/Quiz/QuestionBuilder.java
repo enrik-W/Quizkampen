@@ -42,4 +42,5 @@ public class QuestionBuilder implements Serializable {
         this.answer2 = answer2;
         this.answer3 = answer3;
     }
+
 }

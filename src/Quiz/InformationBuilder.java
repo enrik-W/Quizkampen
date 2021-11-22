@@ -2,6 +2,8 @@ package Quiz;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -25,6 +27,64 @@ public class InformationBuilder {
         buttonList.add(button2);
         buttonList.add(button3);
         buttonList.add(button4);
+
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                button1.setBackground(Color.GREEN);
+                button1.setBorderPainted(false);
+                button1.setOpaque(true);
+                button1.setText("Rätt svar");
+                button1.setFont(new Font("Arial", Font.BOLD,16));
+                button2.setVisible(false);
+                button3.setVisible(false);
+                button4.setVisible(false);
+                button1.repaint();
+            }
+        });
+        button2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                button2.setBackground(Color.RED);
+                button2.setBorderPainted(false);
+                button2.setOpaque(true);
+                button2.setText("Fel svar");
+                button2.setFont(new Font("Arial", Font.BOLD,16));
+                button1.setVisible(false);
+                button3.setVisible(false);
+                button4.setVisible(false);
+                button2.repaint();
+            }
+        });
+        button3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                button3.setBackground(Color.RED);
+                button3.setBorderPainted(false);
+                button3.setOpaque(true);
+                button3.setText("Fel svar");
+                button3.setFont(new Font("Arial", Font.BOLD,16));
+                button1.setVisible(false);
+                button2.setVisible(false);
+                button4.setVisible(false);
+                button3.repaint();
+
+            }
+        });
+        button4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                button4.setBackground(Color.RED);
+                button4.setBorderPainted(false);
+                button4.setOpaque(true);
+                button4.setText("Fel svar");
+                button4.setFont(new Font("Arial", Font.BOLD,16));
+                button1.setVisible(false);
+                button2.setVisible(false);
+                button4.setVisible(false);
+                button4.repaint();
+            }
+        });
     }
 
     public JButton getButton(int index) {
