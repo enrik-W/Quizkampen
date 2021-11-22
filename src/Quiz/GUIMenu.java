@@ -24,7 +24,7 @@ public class GUIMenu {
         JMenuBar mb = new JMenuBar();
         JMenu menu = new JMenu("Settings");
         mb.add(menu);
-        jFrame.setJMenuBar(mb);
+      //  jFrame.setJMenuBar(mb);
 
         Color panelColor = new Color(30,120,200);
         Color panelColor1 = new Color(10,10,10);
@@ -52,7 +52,7 @@ public class GUIMenu {
 
         jPanel1.setVisible(true);
         jPanel1.setBackground(panelColor1);
-        jPanel1.setPreferredSize(new Dimension(500,100));
+        jPanel1.setPreferredSize(new Dimension(475,100));
         jPanel1.setVisible(true);
         gbc.gridwidth = 1;
         gbc.gridx = 0;
@@ -61,7 +61,7 @@ public class GUIMenu {
 
         jPanel.setVisible(true);
         jPanel.setBackground(panelColor);
-        jPanel.setPreferredSize(new Dimension(500,450));
+        jPanel.setPreferredSize(new Dimension(475,450));
         jPanel.setVisible(true);
         gbc.gridwidth = 2;
         gbc.gridx = 0;
