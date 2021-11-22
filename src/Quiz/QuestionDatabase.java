@@ -106,7 +106,6 @@ public class QuestionDatabase {
                 "Sudan",
                 "Kambodja"));
 
-        Collections.shuffle(questionsList);
 
         return questionsList;
     }
