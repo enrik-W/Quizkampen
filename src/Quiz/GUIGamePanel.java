@@ -72,10 +72,6 @@ public class GUIGamePanel {
         gbc.gridwidth = 1;
         gbc.fill = GridBagConstraints.BOTH;
         panel.add(information.getButton(3), gbc);
-
-    }
-    public void updateGamePanel(){
-
-
     }
 }
+

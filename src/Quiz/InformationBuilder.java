@@ -8,8 +8,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class InformationBuilder implements ActionListener {
+    private int questionNr = 0;
     private LocalQuestionDatabase informationBase = new LocalQuestionDatabase();
-    private QuestionBuilder info = informationBase.getQuestion(0);
+    private QuestionBuilder info = informationBase.getQuestion(questionNr);
     private ArrayList<JButton> buttonList = new ArrayList<>();
     private GameLogic logic = new GameLogic();
     private JButton button1;
@@ -49,6 +50,7 @@ public class InformationBuilder implements ActionListener {
         removeAllActionListeners();
         client.addToScore();
         logic.sleepFunction();
+        questionNr++;
     }
 
     @Override
@@ -58,6 +60,7 @@ public class InformationBuilder implements ActionListener {
         button1.setBackground(Color.GREEN);
         removeAllActionListeners();
         logic.sleepFunction();
+        questionNr++;
     }
 
     public JButton getButton(int index) {

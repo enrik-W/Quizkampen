@@ -8,6 +8,12 @@ public class GameLogic {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+    public void nextQuestion(){
+
+
+    }
+    public void refreshGUI(){
 
     }
 }
